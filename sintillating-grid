@@ -1,0 +1,45 @@
+Created with "Processing":https://processing.org
+
+// Scintillating Grid
+// Author: Rupert Russell
+// Crerated 2, October 2010
+// updated 21, July 2018
+// Schtauf, M., Lingelbach, B., Wrist, E.R. (1997)
+// The scintillating grid illusion. Vision Research, 37, 1033-1038.
+ 
+void setup() {
+  size(3000, 3000);        
+  background(0);          // black background
+  strokeWeight(50);        
+  smooth();               // antialias lines
+  stroke(100);  // dark grey colour for lines
+  noLoop();
+}
+ 
+void draw() {
+  int step = 300;          // grid spacing
+   
+  //vertical lines
+  for (int x = step; x < width; x = x + step){
+    line(x, 0, x, height);
+  }
+   
+  //horizontal lines
+  for (int y = step; y < height; y = y + step){
+    line(0, y, width, y);
+  }
+   
+  // Circles
+  smooth();
+  ellipseMode(CENTER);
+  stroke(255);  // white circles
+  for (int i = step; i < width -5; i = i + step) {
+    for (int j = step; j < height -15; j = j + step) {
+      point(i, j);
+    }
+  }
+  
+    save("scintillating_sticker_002.png");
+ exit();
+}
+ 
